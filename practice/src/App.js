@@ -1,6 +1,6 @@
 import './App.css';
 import "./news.css";
-import News from './pages/news'
+import News from './pages/News'
 
 const App = () => {
   return (

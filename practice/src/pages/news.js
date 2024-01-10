@@ -1,6 +1,6 @@
 import posts from '../data/posts'
 
-const News =  ({props}) =>{
+const News =  () =>{
   return(
     <ul className="newsList">
     {posts.map((elem) => (
