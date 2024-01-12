@@ -1,14 +1,22 @@
-.newsList {
-  margin-top: 60px;
-  display: grid;
-  gap: 60px;
+.inner {
   width: min(100% - 60px, 780px);
   margin-inline: auto;
+  margin-top: 60px;
+}
+
+.newsList {
+  display: grid;
+  gap: 60px;
 }
 .newsItem {
   border: 1px solid #ccc;
 }
 .newsItem a {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+.newsInner {
   display: grid;
   gap: 20px;
   padding: 20px;
@@ -34,11 +42,16 @@
 .newsTitle {
   font-size: 24px;
 }
-.newsContent {
+.newsContent._list {
   width: 70%;
   overflow: hidden;
   display: -webkit-box;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=news.css.map */

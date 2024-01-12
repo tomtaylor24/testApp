@@ -1,11 +1,12 @@
 import posts from '../data/posts'
+import { Link } from 'react-router-dom';
 
-const News =  () =>{
+const News = () =>{
   return(
-    <ul className="newsList">
+    <ul className="newsList inner">
     {posts.map((elem) => (
       <li className="newsItem">
-        <a href="">
+        <Link to={`/news/${elem.id}`}>
         <div className="newsTop">
           <p className="newsDate">{elem.createdAt.split("T")[0]}</p>
           <div className="newsLabelWrap">
@@ -15,8 +16,8 @@ const News =  () =>{
           </div>
         </div>
         <h2 className="newsTitle">{elem.title}</h2>
-        <p className="newsContent">{elem.content}</p>
-        </a>
+        <p className="newsContent _list">{elem.content}</p>
+        </Link>
       </li>
     ))}
   </ul>

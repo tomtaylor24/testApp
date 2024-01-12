@@ -1,10 +1,12 @@
+.inner{
+  width: min(100% - 60px, 780px);
+  margin-inline: auto;
+  margin-top: 60px;
+}
 .news{
   &List{
-    margin-top: 60px;
     display: grid;
     gap: 60px;
-    width: min(100% - 60px, 780px);
-    margin-inline: auto;
   }
   &Item{
     border: 1px solid #ccc;
@@ -13,6 +15,11 @@
       gap: 20px;
       padding: 20px;
     }
+  }
+  &Inner{
+    display: grid;
+    gap: 20px;
+    padding: 20px;
   }
   &Top{
     display: flex;
@@ -36,11 +43,18 @@
     font-size: 24px;
   }
   &Content{
-    width: 70%;
-    overflow: hidden;
-    display: -webkit-box;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    &._list{
+      width: 70%;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
   }
+}
+
+img{
+  width: 100%;
+  height: auto;
 }
