@@ -7,23 +7,21 @@ const News = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    // console.log(formValues)
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
-    if (Object.keys(formErrors).length === 0) {
-      const response = await fetch("送信先のAPI URL", {
+    const newErrors = validate(formValues)
+    setFormErrors(newErrors)
+    if (Object.keys(newErrors).length === 0) {
+      const postData = {
+        name: formValues.name,
+        email: formValues.mail,
+        message: formValues.content,
+      };
+      const response = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formValues.name,
-          email: formValues.mail,
-          message: formValues.content,
-        }),
+        body: JSON.stringify(postData)
       });
       alert("送信しました");
       setFormValues(initialValues);
