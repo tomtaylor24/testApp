@@ -1,0 +1,127 @@
+.inner{
+  width: min(100% - 60px, 780px);
+  margin-inline: auto;
+  margin-top: 60px;
+}
+.news{
+  &List{
+    display: grid;
+    gap: 60px;
+  }
+  &Item{
+    border: 1px solid #ccc;
+    a{
+      display: grid;
+      gap: 20px;
+      padding: 20px;
+    }
+  }
+  &Inner{
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+  }
+  &Top{
+    display: flex;
+  }
+  &Date{
+    color: #ccc;
+  }
+  &Label{
+    &Wrap{
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+    }
+    color: blue;
+    display: inline-block;
+    border: 1px solid blue;
+    padding: 3px 6px;
+    border-radius: 4px;
+  }
+  &Title{
+    font-size: 24px;
+  }
+  &Content{
+    &._list{
+      width: 70%;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+  }
+}
+
+img{
+  width: 100%;
+  height: auto;
+}
+
+header{
+  display: flex;
+  height: 80px;
+  align-items: center;
+  background: #333;
+  padding: 0 20px;
+  a{
+    color: #fff;
+    font-weight: bold;
+    &:nth-child(2){
+      margin-left: auto;
+    }
+  }
+}
+
+.form{
+  &Title{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  &List{
+    display: grid;
+    gap: 30px;
+    &__item{
+      display: grid;
+      grid-template-columns: 30% auto;
+      align-items: center;
+      input,
+      textarea{
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        width: 100%;
+        padding: 15px;
+      }
+      textarea{
+        height: calc(1.2em * 12);
+        line-height: 1.2;
+      }
+    }
+  }
+  &Error{
+    color: red;
+  }
+  &Btn{
+    &Wrap{
+      margin-top: 60px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      button{
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        &.submit{
+          background: #333;
+          color: #fff;
+        }
+        &.clear{
+          background: #ccc;
+        }
+      }
+    }
+  }
+}
