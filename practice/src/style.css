@@ -1,0 +1,120 @@
+.inner {
+  width: min(100% - 60px, 780px);
+  margin-inline: auto;
+  margin-top: 60px;
+}
+
+.newsList {
+  display: grid;
+  gap: 60px;
+}
+.newsItem {
+  border: 1px solid #ccc;
+}
+.newsItem a {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+.newsInner {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+.newsTop {
+  display: flex;
+}
+.newsDate {
+  color: #ccc;
+}
+.newsLabel {
+  color: blue;
+  display: inline-block;
+  border: 1px solid blue;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+.newsLabelWrap {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+.newsTitle {
+  font-size: 24px;
+}
+.newsContent._list {
+  width: 70%;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  display: flex;
+  height: 80px;
+  align-items: center;
+  background: #333;
+  padding: 0 20px;
+}
+header a {
+  color: #fff;
+  font-weight: bold;
+}
+header a:nth-child(2) {
+  margin-left: auto;
+}
+
+.formTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.formList {
+  display: grid;
+  gap: 30px;
+}
+.formList__item {
+  display: grid;
+  grid-template-columns: 30% auto;
+  align-items: center;
+}
+.formList__item input,
+.formList__item textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  padding: 15px;
+}
+.formList__item textarea {
+  height: 14.4em;
+  line-height: 1.2;
+}
+.formError {
+  color: red;
+}
+.formBtnWrap {
+  margin-top: 60px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.formBtnWrap button {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.formBtnWrap button.submit {
+  background: #333;
+  color: #fff;
+}
+.formBtnWrap button.clear {
+  background: #ccc;
+}/*# sourceMappingURL=style.css.map */
