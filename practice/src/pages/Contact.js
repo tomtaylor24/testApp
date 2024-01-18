@@ -3,6 +3,7 @@ const News = () => {
   const initialValues = { name: "", mail: "", content: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -10,22 +11,29 @@ const News = () => {
   };
 
   const handleSubmit = async (e) => {
+    setIsSubmit(true);
     e.preventDefault();
-    const newErrors = validate(formValues)
-    setFormErrors(newErrors)
-    if (Object.keys(newErrors).length === 0) {
-      const postData = {
-        name: formValues.name,
-        email: formValues.mail,
-        message: formValues.content,
-      };
-      const response = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts", {
+    const newErrors = validate(formValues);
+    setFormErrors(newErrors);
+    if (Object.keys(newErrors).length) {
+      setIsSubmit(false);
+      return;
+    };
+    const postData = {
+      name: formValues.name,
+      email: formValues.mail,
+      message: formValues.content,
+    };
+    const response = await fetch(
+      "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts",
+      {
         method: "POST",
-        body: JSON.stringify(postData)
-      });
-      alert("送信しました");
-      setFormValues(initialValues);
-    }
+        body: JSON.stringify(postData),
+      }
+    );
+    alert("送信しました");
+    setFormValues(initialValues);
+    setIsSubmit(false);
   };
 
   const validate = (values) => {
@@ -68,6 +76,7 @@ const News = () => {
                 name="name"
                 value={formValues.name}
                 onChange={(e) => handleChange(e)}
+                disabled={isSubmit}
               />
             </li>
             <p className="formError">{formErrors.name}</p>
@@ -78,6 +87,7 @@ const News = () => {
                 name="mail"
                 value={formValues.mail}
                 onChange={(e) => handleChange(e)}
+                disabled={isSubmit}
               />
             </li>
             <p className="formError">{formErrors.mail}</p>
@@ -88,12 +98,13 @@ const News = () => {
                 name="content"
                 value={formValues.content}
                 onChange={(e) => handleChange(e)}
+                disabled={isSubmit}
               />
             </li>
             <p className="formError">{formErrors.content}</p>
           </ul>
           <div className="formBtnWrap">
-            <button className="submit" type="submit" onClick={handleSubmit}>
+            <button className="submit" type="submit" onClick={handleSubmit} disabled={isSubmit}>
               送信
             </button>
             <button className="clear" type="button" onClick={handleClear}>

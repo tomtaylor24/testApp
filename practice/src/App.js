@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 const App = () => {
   return (
     <BrowserRouter>
-    <Header />
+      <Header />
       <Switch>
         <Route path="/" exact component={News} />
         <Route path="/news/:id" component={NewsDetail} />
